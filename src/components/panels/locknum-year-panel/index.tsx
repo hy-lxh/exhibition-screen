@@ -8,13 +8,18 @@ import { init, EChartsType } from 'echarts';
 import { useEvent } from '@/hooks/event.ts';
 import './index.less';
 import getOption from './option.ts';
+import { getLockNumByYear } from '@/api/index.ts';
+import { getPanelData } from '../index.ts';
+import { lockNumByYearList } from '@/mock/data.ts';
 export default function LockNumYearPanel() {
     const chartRef = useRef<null | HTMLDivElement>(null);
     let instance: EChartsType;
     useEffect(() => {
         if (chartRef.current) {
             instance = init(chartRef.current);
-            getOption().then((option) => instance.setOption(option));
+            getPanelData(getLockNumByYear, lockNumByYearList).then((data) =>
+                instance.setOption(getOption(data)),
+            );
         }
     }, [chartRef]);
     useEvent(window, 'resize', () => instance?.resize?.());

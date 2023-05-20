@@ -9,13 +9,18 @@ import { useEvent } from '@/hooks/event.ts';
 import chartBg from '@/assets/chart-bg.png';
 import './index.less';
 import getOption from './option';
+import { customerTypeList } from '@/mock/data.ts';
+import { getCustomerType } from '@/api/index.ts';
+import { getPanelData } from '../index.ts';
 export default function CustomerTypePanel() {
     const chartRef = useRef<null | HTMLDivElement>(null);
     let instance: EChartsType;
     useEffect(() => {
         if (chartRef.current) {
             instance = init(chartRef.current);
-            getOption().then((option) => instance.setOption(option));
+            getPanelData(getCustomerType, customerTypeList).then((data) =>
+                instance.setOption(getOption(data)),
+            );
         }
     }, [chartRef]);
     useEvent(window, 'resize', () => instance?.resize?.());

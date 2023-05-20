@@ -1,7 +1,5 @@
 import { graphic } from 'echarts';
-import { getLockNumByMonth } from '@/api/index.ts';
-export default async function getOption() {
-    const { data: { data = [] } = {} } = await getLockNumByMonth();
+export default function getOption(data: SeriesData[]) {
     return {
         xAxis: {
             type: 'category',

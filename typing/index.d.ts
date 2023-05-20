@@ -1,4 +1,4 @@
-type VoidFn = () => void;
+type VoidFn<T = void> = () => T;
 
 type HttpResponse<T> = {
     success: boolean;

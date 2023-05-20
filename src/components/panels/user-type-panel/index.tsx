@@ -6,6 +6,9 @@ import CustomPanel from '@/components/custom-panel/index.tsx';
 import { useRef, useEffect } from 'react';
 import { useEvent } from '@/hooks/event.ts';
 import getOption from './option';
+import { getUserTypeList } from '@/api/index.ts';
+import { getPanelData } from '../index.ts';
+import { userTypeList } from '@/mock/data.ts';
 export default function UserTypePanel() {
     const chartRef = useRef<null | HTMLDivElement>(null);
     let instance: EChartsType;
@@ -13,7 +16,9 @@ export default function UserTypePanel() {
     useEffect(() => {
         if (chartRef.current) {
             instance = init(chartRef.current);
-            getOption().then((option) => instance.setOption(option));
+            getPanelData(getUserTypeList, userTypeList).then((data) =>
+                instance.setOption(getOption(data)),
+            );
         }
     }, []);
     useEvent(window, 'resize', () => {

@@ -8,6 +8,9 @@ import { useEffect, useRef } from 'react';
 import { init, EChartsType } from 'echarts';
 import './index.less';
 import getOption from './option.ts';
+import { getIndustryDivision } from '@/api/index.ts';
+import { getPanelData } from '../index.ts';
+import { industryDivisionList } from '@/mock/data.ts';
 
 export default function IndustryDivisionPanel() {
     const chartRef = useRef<null | HTMLDivElement>(null);
@@ -15,7 +18,9 @@ export default function IndustryDivisionPanel() {
     useEffect(() => {
         if (chartRef.current) {
             instance = init(chartRef.current);
-            getOption().then((option) => instance.setOption(option));
+            getPanelData(getIndustryDivision, industryDivisionList).then(
+                (data) => instance.setOption(getOption(data)),
+            );
         }
     }, [chartRef]);
     useEvent(window, 'resize', () => instance?.resize?.());

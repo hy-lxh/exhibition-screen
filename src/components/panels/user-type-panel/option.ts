@@ -1,6 +1,4 @@
-import { getUserTypeList } from '@/api/index.ts';
-export default async function getOption() {
-    const { data: { data = [] } = {} } = await getUserTypeList();
+export default function getOption(data: SeriesData[]) {
     const sum = data!.reduce((pre, { value }) => pre + value, 0);
     return {
         legend: {

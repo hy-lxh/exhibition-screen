@@ -1,7 +1,5 @@
-import { getIndustryDivision } from '@/api/index.ts';
 import { graphic } from 'echarts';
-export default async function getOption() {
-    const { data: { data = [] } = {} } = await getIndustryDivision();
+export default function getOption(data: SeriesData[]) {
     return {
         grid: {
             top: 0,

@@ -5,15 +5,13 @@ import { useEffect, useState } from 'react';
 import './index.less';
 import CustomPanel from '@/components/custom-panel/index.tsx';
 import { getRealtimeLog } from '@/api/index.ts';
+import { getPanelData } from '../index.ts';
+import { realtimeLogList } from '@/mock/data.ts';
 export default function RealtimeLogPanel() {
     const [logList, setLogList] = useState<Log[]>([]);
     const getTime = (time: number) => new Date(time).toLocaleTimeString();
     useEffect(() => {
-        getRealtimeLog().then(({ data: { success, data } }) => {
-            if (success) {
-                setLogList(data);
-            }
-        });
+        getPanelData<Log[]>(getRealtimeLog, realtimeLogList).then(setLogList);
     }, []);
     return (
         <CustomPanel title="实时动态服务" className="h-0 panel">

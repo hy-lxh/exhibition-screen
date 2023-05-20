@@ -1,7 +1,4 @@
-import { getCustomerType } from '@/api/index.ts';
-
-export default async function getOption() {
-    const { data: { data = [] } = {} } = await getCustomerType();
+export default function getOption(data: SeriesData[]) {
     return {
         legend: {
             bottom: '0px',
