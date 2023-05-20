@@ -10,6 +10,7 @@ import './App.less';
 import CustomerTypePanel from '@/components/panels/customer-type-panel/index.tsx';
 import IndustryDivisionPanel from '@/components/panels/industry-division-panel/index.tsx';
 function App() {
+    console.log(1111);
     return (
         <div className="app flex-col">
             <Header />
