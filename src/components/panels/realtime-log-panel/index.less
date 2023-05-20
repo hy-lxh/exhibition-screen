@@ -1,0 +1,23 @@
+.log-list {
+    font-size: 11px;
+    color: #4f4f4f;
+    .log-record {
+        display: grid;
+        grid-template-columns: 5fr 4fr 2fr 4fr 3fr;
+        align-items: center;
+        padding: 10px @panel-padding-h;
+    }
+    .log-record > span:not(:first-child):not(:last-child) {
+        text-align: center;
+    }
+    .odd {
+        background: rgba(255, 164, 164, 0.13);
+    }
+    .even {
+        background: rgba(255, 230, 230, 0.15);
+    }
+}
+
+.panel {
+    padding: @panel-padding-v 0 !important;
+}
