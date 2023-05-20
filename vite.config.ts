@@ -20,6 +20,7 @@ export default ({ mode }: { mode: string }) => {
             },
             extensions: ['.tsx', '.ts'],
         },
+        base: './',
         css: {
             preprocessorOptions: {
                 less: {
