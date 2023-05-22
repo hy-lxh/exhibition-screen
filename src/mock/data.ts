@@ -16,7 +16,7 @@ export const realtimeLogList = Array.from(new Array<Log>(12), () => ({
     peopleName: Random.cname(),
     peopleTel: '189' + mock(/[0-9]{8}/),
     openType: ['蓝牙开门', '人脸开门', '指纹开门', '钥匙开门', '远程开门'][
-        Math.round(Math.random() * 5)
+        Math.round(Math.random() * 4)
     ],
     peopleCity: Random.city(),
     time: new Date(Random.now()).getTime(),

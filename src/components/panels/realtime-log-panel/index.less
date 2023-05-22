@@ -1,6 +1,10 @@
 .log-list {
+    &:hover {
+        animation-play-state: paused;
+    }
     font-size: 11px;
     color: #4f4f4f;
+    animation: scroll 12s ease infinite alternate;
     .log-record {
         display: grid;
         grid-template-columns: 5fr 4fr 2fr 4fr 3fr;
