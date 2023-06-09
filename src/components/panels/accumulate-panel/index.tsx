@@ -3,7 +3,7 @@
  */
 import CountingPanel from '@/components/counting-panel/index.tsx';
 import CustomPanel from '@/components/custom-panel/index.tsx';
-import map from '@/assets/map.jpg';
+import map from '@/assets/map.png';
 import './index.less';
 import { useEffect, useState } from 'react';
 import { getAccumulate, getOfficeNum } from '@/api/index.ts';
